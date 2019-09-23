@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2017",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "types": [],
+
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "sourceMap": true,
+
+    "outDir": "dist"
+  },
+  "files": [
+    "test.ts"
+  ],
+  "include": [
+    "*.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}
