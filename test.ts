@@ -66,7 +66,7 @@ const avalonStreams = avalonObjs.map(avalon => splittedLines.filter(val => val[a
 
 
 const packets = avalonStreams.reduce((acum, cur) => acum.concat(cur), []).sort((a, b) => a.timestamp - b.timestamp);
-console.log(packets);
+// console.log(packets);
 
 const f = openSync(targetFile, 'w');
 // $fwrite(pcapFile, "%u", {<<8{'ha1b2c3d4}}); //MAGIC NUMBER
@@ -91,8 +91,17 @@ writeSync(f, Buffer.from(timestamp.toString(16).padStart(8, '0') + '00000000' + 
 for (const packet of packets) {
   writeSync(f, Buffer.from((timestamp + packet.timestamp + packet.avalonIndex * 1000).toString(16).padStart(8, '0'), 'hex'));
   writeSync(f, Buffer.from('00000000', 'hex'));
-  writeSync(f, Buffer.from((packet.data.length).toString(16).padStart(8, '0'), 'hex'));
-  writeSync(f, Buffer.from((packet.data.length).toString(16).padStart(8, '0'), 'hex'));
+  writeSync(f, Buffer.from((packet.data.length + 14 + 20 + 8).toString(16).padStart(8, '0'), 'hex'));
+  writeSync(f, Buffer.from((packet.data.length + 14 + 20 + 8).toString(16).padStart(8, '0'), 'hex'));
+  if (packet.avalonIndex === 0) {
+    writeSync(f, Buffer.from('506b4befc7cf000cd70042ab0800', 'hex'));
+    writeSync(f, Buffer.from('450001340000400080112419c0a82a0ac0a82a45', 'hex'));
+    writeSync(f, Buffer.from('133812b701200000', 'hex'));
+  } else {
+    writeSync(f, Buffer.from('000cd70042ab506b4befc7cf0800', 'hex'));
+    writeSync(f, Buffer.from('450201347ff140004011e425c0a82a45c0a82a0a', 'hex'));
+    writeSync(f, Buffer.from('f4d812b701200000', 'hex'));
+  }
   writeSync(f, packet.data);
 }
 
