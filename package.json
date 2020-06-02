@@ -9,15 +9,15 @@
   "license": "ISC",
   "dependencies": {
     "@types/bignum": "0.0.29",
-    "@types/blessed": "^0.1.10",
-    "@types/filesize": "^4.1.0",
-    "@types/node": "^10.14.8",
-    "bigint-buffer": "^1.1.2",
+    "@types/blessed": "^0.1.17",
+    "@types/filesize": "^4.2.0",
+    "@types/node": "^10.17.24",
+    "bigint-buffer": "^1.1.5",
     "bignum": "^0.13.0",
     "blessed": "^0.1.81",
-    "delay": "^4.2.0",
-    "filesize": "^4.1.2",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.2.4"
+    "delay": "^4.3.0",
+    "filesize": "^4.2.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
   }
 }

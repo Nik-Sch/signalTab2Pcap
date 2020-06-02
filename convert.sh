@@ -1,9 +1,10 @@
 #!/bin/bash
+FILE=/home/niklas/dev/hhi/RoCEv2/examples/CCITest/_syn/output_files/packetSniffer.csv
 while :
 do
   date
-  cp /home/schelten/projects/FPGA/RoCE/examples/CCITest/_syn/output_files/RoCETap.csv .
+  cp $FILE ./RoCETap.csv
   npm run run
-  inotifywait -e modify /home/schelten/projects/FPGA/RoCE/examples/CCITest/_syn/output_files/RoCETap.csv
+  inotifywait -e modify $FILE
   sleep 1
 done

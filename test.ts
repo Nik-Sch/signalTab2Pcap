@@ -31,7 +31,8 @@ const avalonObjs = [... avalons].map(name => {
     validBytes: firstRow.findIndex(val => val.match(new RegExp(name + '\\.validBytes', 'i')) !== null)
   };
 });
-// console.log(avalonObjs);
+console.log(avalonObjs.map(i => i.name));
+console.log(['192.168.42.69', '192.168.42.10']);
 
 const splittedLines = lines.slice(1).map(line => line.split(/\s*,\s*/));
 const avalonStreams = avalonObjs.map(avalon => splittedLines.filter(val => val[avalon.dval] === '1').map(line => {
