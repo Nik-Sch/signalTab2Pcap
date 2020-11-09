@@ -14,7 +14,7 @@ lines = lines.slice(lines.findIndex(line => {
 
 let firstRow = lines[0].split(/\s*,\s*/);
 const avalons = new Set(firstRow.map((name) => {
-  const match = name.match(/\|([^|.]+avalon[^|.]+)\./i);
+  const match = name.match(/\|([^|.]+avalon[^|.]*)\./i);
   if (match !== null) {
     return match[1];
   }

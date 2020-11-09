@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "run": "tsc && node dist/test.js RoCETap.csv"
+    "run": "tsc && node dist/test.js stuff.csv"
   },
   "author": "",
   "license": "ISC",
