@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE=/home/niklas/dev/hhi/HWAccFW/_syn/Quartus/Nallatech_385A/flow/network.csv
+FILE=/home/niklas/dev/hhi/RoCEStackExamples/TestApplication/_syn/output_files/stp.csv
 while :
 do
   date

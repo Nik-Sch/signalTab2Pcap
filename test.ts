@@ -32,7 +32,6 @@ const avalonObjs = [... avalons].map(name => {
   };
 });
 console.log(avalonObjs.map(i => i.name));
-console.log(['192.168.42.69', '192.168.42.10']);
 
 const splittedLines = lines.slice(1).map(line => line.split(/\s*,\s*/));
 const avalonStreams = avalonObjs.map(avalon => splittedLines.filter(val => val[avalon.dval] === '1').map(line => {
@@ -90,7 +89,7 @@ writeSync(f, Buffer.from(timestamp.toString(16).padStart(8, '0') + '00000000' + 
 // $fwrite(pcapFile, "%u", {<<8{packageLength}}); // number of octets of packet saved in file
 // $fwrite(pcapFile, "%u", {<<8{packageLength}}); // actual length of packet
 for (const packet of packets) {
-  writeSync(f, Buffer.from((timestamp + packet.timestamp + packet.avalonIndex * 1000).toString(16).padStart(8, '0'), 'hex'));
+  writeSync(f, Buffer.from((timestamp + packet.timestamp + packet.avalonIndex * 100000).toString(16).padStart(8, '0'), 'hex'));
   writeSync(f, Buffer.from('00000000', 'hex'));
   writeSync(f, Buffer.from((packet.data.length).toString(16).padStart(8, '0'), 'hex'));
   writeSync(f, Buffer.from((packet.data.length).toString(16).padStart(8, '0'), 'hex'));
